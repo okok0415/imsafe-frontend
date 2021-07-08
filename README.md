@@ -1,5 +1,1 @@
-
-
-학번, 생년월일 추가
-
-supervisor 통제
+Task : AL Execute Delete 아이콘으로 변경필요

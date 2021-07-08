@@ -1,12 +1,10 @@
 import { HashRouter, Route, Switch } from "react-router-dom"
-import Home from "./Routes/Home.js";
-import ScreenSharing from "./Routes/ScreenSharing.js"
-import Board from "./Routes/Board.js";
-import Detail from "./Routes/Detail.js";
-import Login from "./Routes/LoginPage.js";
-//import Navbar from "./Components/Navbar/Navbar.js";
+import Home from "./Components/Home/Home.js";
 import Navbar2 from "./Components/Navbar/Navbar2.js";
-import Signup from "./Components/Signup.js"
+import Create from "./Components/Create.js"
+import Execute from "./Components/Execute.js"
+import Settings from "./Components/Settings.js"
+
 import './CSS/App.css';
 
 function App() {
@@ -14,12 +12,10 @@ function App() {
     <HashRouter>
       <Navbar2 />
       <Switch>
-        <Route path="/" exact={true} component={Home} />
-        <Route path="/ScreenSharing" exact={true} component={ScreenSharing} />
-        <Route path="/Board" exact={true} component={Board} />
-        <Route path="/Board/:id" component={Detail} />
-        <Route path="/Login" component={Login} />
-        <Route path="/Signup" component={Signup} />
+        <Route path="/home" exact={true} component={Home} />
+        <Route path="/create" exact={true} component={Create} />
+        <Route path="/execute" exact={true} component={Execute} />
+        <Route path="/settings" exact={true} component={Settings} />
       </Switch>
     </HashRouter>
   );

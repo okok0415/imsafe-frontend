@@ -5,7 +5,9 @@ import "../../CSS/Navbar/Button.css"
 export function Button() {
     return (
         <Link to='/Login'>
-            <button className='btn'> Login</button>
+            <button className='btn'>
+                <i class="fas fa-sign-in-alt"/> logout
+            </button>
         </Link>
     )
 }
