@@ -6,7 +6,7 @@ export function Button() {
     return (
         <Link to='/Login'>
             <button className='btn'>
-                <i class="fas fa-sign-in-alt"/> logout
+                <i class="fas fa-sign-in-alt" />
             </button>
         </Link>
     )

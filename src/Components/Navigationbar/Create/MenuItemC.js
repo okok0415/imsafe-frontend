@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
-        title: 'Home',
-        path: '/home',
+        title: '생성',
+        path: '/create',
         cName: 'dropdown-link'
     },
 ];
