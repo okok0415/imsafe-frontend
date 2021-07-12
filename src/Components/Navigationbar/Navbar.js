@@ -81,7 +81,7 @@ function Navbar() {
                         {dropdownC && <DropdownC />}
                     </li>
                     <li className='nav-item2' onMouseEnter={onMouseEnterI} onMouseLeave={onMouseLeaveI}>
-                        <Link to='/execute' className="nav-links2" onClick={closeMobileMenu}>
+                        <Link to='/inquiry/status' className="nav-links2" onClick={closeMobileMenu}>
                             <i class="fas fa-list"></i>
                         </Link>
                         {dropdownI && <DropdownI />}
