@@ -16,7 +16,10 @@ function Signin() {
         <div>
             <div className="login container">
                 <div className="img">
-                    <img src={loginIcon} alt="" />
+                    <div className="img-block">
+                        <img src={loginIcon} alt="" />
+                        <Link to="/register" className="register-link">생성된 아이디가 없나요? 회원가입</Link>
+                    </div>
                 </div>
                 <div className="login-content">
                     <form >
@@ -24,23 +27,23 @@ function Signin() {
                         <h2>IMSAFE</h2>
                         <div className={ID ? "input-div one focus" : "input-div one"}>
                             <div className="i">
-                                <i class="fas fa-user"></i>
+                                <i className="fas fa-user"></i>
                             </div>
                             <div>
-                                <h5>ID</h5>
+                                <h5>아이디</h5>
                                 <input onClick={handleID} className="input" type="text" />
                             </div>
                         </div>
                         <div className={PW ? "input-div two focus" : "input-div two"}>
                             <div className="i">
-                                <i class="fas fa-lock"></i>
+                                <i className="fas fa-lock"></i>
                             </div>
                             <div>
-                                <h5>Password</h5>
+                                <h5>비밀번호</h5>
                                 <input onClick={handlePW} className="input" type="password" />
                             </div>
                         </div>
-                        <Link to="/" className="login-link">비밀번호를 잊어먹었습니까?</Link>
+                        <Link to="/" className="login-link">비밀번호를 잊어버렸습니까?</Link>
                         <input type="submit" className="btn" value="로그인" />
                     </form>
                 </div>

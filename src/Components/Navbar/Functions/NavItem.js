@@ -6,7 +6,7 @@ function NavItem(props) {
 
     return (
         <li className="nav-item">
-            <Link href="#" className="icon-button"
+            <Link to="/" className="icon-button"
                 onMouseEnter={() => setOpen(!open)}
                 onMouseLeave={() => setOpen(!open)}
             >

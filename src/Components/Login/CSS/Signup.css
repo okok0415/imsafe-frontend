@@ -1,0 +1,55 @@
+
+
+
+.img-signup {
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+.img-signup img{
+    display: block;
+    width:400px;
+}
+
+.login-content-signup{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+
+	.login-content-signup h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.img-signup img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 950px){
+	.container{
+		grid-template-columns: 1fr;
+	}
+
+	.img-signup{
+		display: none;
+	}
+
+	.login-content-signup{
+		justify-content: center;
+	}
+}

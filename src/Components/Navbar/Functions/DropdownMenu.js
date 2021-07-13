@@ -23,7 +23,7 @@ function DropdownMenuC() {
 
     function DropdownItem(props) {
         return (
-            <Link href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+            <Link to="/" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
                 {props.children}
                 <span className="icon-right">{props.rightIcon}</span>
@@ -67,7 +67,7 @@ function DropdownMenuI() {
 
     function DropdownItem(props) {
         return (
-            <Link href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+            <Link to="/" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
                 {props.children}
                 <span className="icon-right">{props.rightIcon}</span>
@@ -111,7 +111,7 @@ function DropdownMenuS() {
 
     function DropdownItem(props) {
         return (
-            <Link href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+            <Link to="/" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
                 {props.children}
                 <span className="icon-right">{props.rightIcon}</span>
