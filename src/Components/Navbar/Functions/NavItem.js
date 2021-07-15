@@ -6,9 +6,9 @@ function NavItem(props) {
 
     return (
         <li className="nav-item">
-            <Link to="/" className="icon-button"
-                onMouseEnter={() => setOpen(!open)}
-                onMouseLeave={() => setOpen(!open)}
+            <Link to={props.url} className="icon-button"
+                onMouseEnter={() => setOpen(true)}
+                onMouseLeave={() => setOpen(false)}
             >
                 {props.icon}
             </Link>

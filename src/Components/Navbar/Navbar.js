@@ -11,13 +11,13 @@ import "./CSS/Navbar.css";
 function Navbar() {
     return (
         <Topbar>
-            <NavItem icon={<PlusIcon />}>
+            <NavItem icon={<PlusIcon />} url="/create">
                 <DropdownMenuC />
             </NavItem>
-            <NavItem icon={<ListIcon />}>
+            <NavItem icon={<ListIcon />} url="/inquiry/state">
                 <DropdownMenuI />
             </NavItem>
-            <NavItem icon={<CogIcon />}>
+            <NavItem icon={<CogIcon />} url="/settings/myprofile">
                 <DropdownMenuS />
             </NavItem>
             <NavItem icon={<LogoutIcon />}>
