@@ -4,6 +4,7 @@ body {
     font-family: roboto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
   }
   
   code {
@@ -13,6 +14,7 @@ body {
   
   
   :root {
+    --background: #151616;
     --bg:  #242526;
     --bg-accent: #484a4d;
     --text-color: #dadce1;

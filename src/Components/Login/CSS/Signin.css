@@ -168,10 +168,11 @@ form h2{
     outline: none;
     border: none;
     background-image: linear-gradient(to right, #32be8f, #3ebe8f, #ffffff);
-    color: #fff;
+    color: white;
     background-size: 200%;
     text-transform: uppercase;
     transition: .5s;
+    text-align: center;
 }
 
 .btn:hover{
