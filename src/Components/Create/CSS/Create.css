@@ -1,0 +1,85 @@
+
+.create-content {
+    margin : 30px;
+    display: flex;
+    justify-content: center;    
+}
+
+.create{ 
+    width: 600px;
+    height: 800px;
+    background-color: var(--background);
+
+
+}
+
+.create .title {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    border: 0;
+    border-bottom: 1px solid var(--bg-accent);
+    padding-bottom:5px;
+}
+
+.create .instance {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.create .instance .left {
+    padding: 8px;
+    text-align: right;
+}
+
+.create .instance .right{
+    border : 1px solid var(--bg-accent);
+    padding: 8px;
+    text-align: left;
+}
+.create .instance .name{
+    width: 100px;
+    text-align: center;
+}
+.create .instance .gender{
+    text-align: center;
+}
+
+.create .instance .righttel{
+    border : 1px solid var(--bg-accent);
+    padding: 8px;
+    text-align: center;
+    
+}
+.create .instance .sensor{
+    width: 150px;
+}
+
+.create .instance .inputvalue{
+    border : 1px solid var(--bg-accent);
+    padding: 8px;
+    text-align: left;
+
+    background-color: var(--bg);
+    color: var(--text-color);
+}
+
+.create .instance .tel{
+    width: 100px;
+    border : 1px solid var(--bg-accent);
+    padding: 8px;
+    text-align: center;
+    background-color: var(--bg);
+    color: var(--text-color);
+}
+.create .instance .btn{
+    font-size: 15px;
+    width:150px;
+    height: 40px;
+    text-align: center;
+    padding:8px;
+}

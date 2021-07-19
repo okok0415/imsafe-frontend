@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { HomeRouter } from "./Components/Home/HomeRouter.js";
 import { SettingsRouter } from "./Components/Settings/SettingsRouter.js";
 import { SigninRouter, SignupRouter } from "./Components/Login/LoginRouter.js";
-import './CSS/App.css';
+import { CreateRouter } from "./Components/Create/CreateRouter.js";
 import { InquiryRouter } from "./Components/Inquiry/InquiryRouter.js";
-
+import './CSS/App.css';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +14,7 @@ function App() {
         <Route path="/home" exact={true} component={HomeRouter} />
         <Route path="/inquiry" component={InquiryRouter} />
         <Route path="/settings" component={SettingsRouter} />
+        <Route path="/create" component={CreateRouter} />
       </Switch>
     </BrowserRouter>
 
