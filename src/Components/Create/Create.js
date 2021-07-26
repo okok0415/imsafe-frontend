@@ -11,7 +11,7 @@ function Create() {
                     </div>
                     <div className="instance">
                         <div className="left">성함 </div>
-                        <input type="id" className="inputvalue name" />
+                        <input type="name" className="inputvalue name" />
                     </div>
                     <div className="instance">
                         <div className="left">생년월일</div>
