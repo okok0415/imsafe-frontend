@@ -1,9 +1,8 @@
-import { Table } from "./Table.js";
-
+import { FilteringTable } from "./FilteringTable";
 
 function Data() {
 
-    return <Table />;
+    return <FilteringTable />;
 }
 
 export default Data;

@@ -33,10 +33,10 @@ function SidebarInquiry() {
         <div className="sidebar">
             <div className="sidebar-container">
                 <ul className="sidebar-list">
-                    {SidebarDataInquiry.map((val, key) => {
+                    {SidebarDataInquiry.map((val) => {
                         return (
                             <Link to={val.link}>
-                                <li key={key} className="row" id={window.location.pathname === val.link ? "active" : ""}>
+                                <li key={val.id} className="row" id={window.location.pathname === val.link ? "active" : ""}>
                                     <div id="icon">
                                         {val.icon}
                                     </div>

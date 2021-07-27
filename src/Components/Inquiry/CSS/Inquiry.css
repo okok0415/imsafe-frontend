@@ -9,5 +9,21 @@
 .content {
     color: var(--text-color);
     margin: 30px;
-    
+    text-align: center;
+}
+
+.global-filter {
+
+}
+
+.global-filter input{
+    border : 1px solid var(--bg-accent);
+    padding: 8px;
+    text-align: left;
+    background-color: var(--bg);
+    color: var(--text-color);
+}
+
+.global-filter .search{
+
 }
