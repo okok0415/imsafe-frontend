@@ -1,4 +1,4 @@
-import { SliderColumnFilter, NumberRangeColumnFilter, SelectColumnFilter, filterGreaterThan } from "./Table";
+import { NumberRangeColumnFilter, SelectColumnFilter, NameColumnFilter, AddressColumnFilter, PhoneColumnFilter, MedicalRecordsColumnFilter } from "./Table";
 
 export const COLUMNS = [
     {
@@ -7,6 +7,7 @@ export const COLUMNS = [
             {
                 Header: '성함',
                 accessor: '성함',
+                Filter: NameColumnFilter,
                 className: "name",
             },
             {
@@ -26,13 +27,13 @@ export const COLUMNS = [
             {
                 Header: '주소',
                 accessor: '주소',
-                // Use our custom `fuzzyText` filter on this column
-                filter: 'fuzzyText',
+                Filter: AddressColumnFilter,
                 className: 'address',
             },
             {
                 Header: '전화번호',
                 accessor: '전화번호',
+                Filter: PhoneColumnFilter,
                 // Use our custom `fuzzyText` filter on this column
                 filter: 'fuzzyText',
                 className: 'phonenum',
@@ -40,6 +41,7 @@ export const COLUMNS = [
             {
                 Header: '진료기록',
                 accessor: '진료기록',
+                Filter: MedicalRecordsColumnFilter,
                 // Use our custom `fuzzyText` filter on this column
                 filter: 'fuzzyText',
                 className: "medical-records"
@@ -52,12 +54,14 @@ export const COLUMNS = [
             {
                 Header: '보호자 성함',
                 accessor: '보호자',
+                Filter: NameColumnFilter,
                 filter: 'fuzzyText',
                 className: 'protector',
             },
             {
                 Header: '보호자 전화번호',
                 accessor: '보호자 전화번호',
+                Filter: PhoneColumnFilter,
                 filter: 'fuzzyText',
                 className: 'pphonenum',
             },
@@ -66,6 +70,7 @@ export const COLUMNS = [
     {
         Header: '담당자',
         accessor: '담당자',
+        Filter: NameColumnFilter,
         filter: 'fuzzyText',
         className: 'PIC',
     },

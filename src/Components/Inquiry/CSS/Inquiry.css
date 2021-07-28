@@ -16,7 +16,7 @@
 
 }
 
-.global-filter input{
+.table input{
     border : 1px solid var(--bg-accent);
     padding: 8px;
     text-align: left;

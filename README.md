@@ -17,6 +17,7 @@ Task
 
     4. PublicRoute PrivateRoute 나눠야함.
     
+    5. SensorColumn acceossor true false대신 이모티콘 넣는게 가능할까?
 
 
 

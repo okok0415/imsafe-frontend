@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "./Tableset/Table";
-import { COLUMNS } from "./Tableset/Columns";
+import { COLUMNS } from "./Tableset/StateColumns";
 import MOCK_DATA from "./Tableset/MOCK_DATA.json";
 import "../CSS/Inquiry.css"
 
