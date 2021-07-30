@@ -286,7 +286,7 @@ function fuzzyTextFilterFn(rows, id, filterValue) {
 
 // Let the table remove the filter if the string is empty
 fuzzyTextFilterFn.autoRemove = val => !val
-
+/*
 function DateRangeColumnFilter({
     column: { filterValue = [], preFilteredRows, setFilter, id }
 }) {
@@ -345,6 +345,74 @@ function dateBetweenFilterFn(rows, id, filterValues) {
 }
 
 dateBetweenFilterFn.autoRemove = val => !val;
+
+*/
+function DateRangeColumnFilter({
+    column: {
+        filterValue = [],
+        preFilteredRows,
+        setFilter,
+        id
+    } }) {
+    const [min, max] = React.useMemo(() => {
+        let min = preFilteredRows.length ? new Date(preFilteredRows[0].values[id]) : new Date(0)
+        let max = preFilteredRows.length ? new Date(preFilteredRows[0].values[id]) : new Date(0)
+
+        preFilteredRows.forEach(row => {
+            const rowDate = new Date(row.values[id])
+
+            min = rowDate <= min ? rowDate : min
+            max = rowDate >= max ? rowDate : max
+        })
+
+        return [min, max]
+    }, [id, preFilteredRows])
+
+    return (
+        <div>
+            <input
+                min={min.toISOString().slice(0, 10)}
+                onChange={e => {
+                    const val = e.target.value
+                    setFilter((old = []) => [val ? val : undefined, old[1]])
+                }}
+                type="date"
+                value={filterValue[0] || ''}
+            />
+            {' to '}
+            <input
+                max={max.toISOString().slice(0, 10)}
+                onChange={e => {
+                    const val = e.target.value
+                    setFilter((old = []) => [old[0], val ? val.concat('T23:59:59.999Z') : undefined])
+                }}
+                type="date"
+                value={filterValue[1]?.slice(0, 10) || ''}
+            />
+        </div>
+    )
+}
+
+function dateBetweenFilterFn(rows, id, filterValues) {
+    let sd = filterValues[0] ? new Date(filterValues[0]) : undefined
+    let ed = filterValues[1] ? new Date(filterValues[1]) : undefined
+
+    if (ed || sd) {
+        return rows.filter(r => {
+            var time = new Date(r.values[id])
+
+            if (ed && sd) {
+                return (time >= sd && time <= ed)
+            } else if (sd) {
+                return (time >= sd)
+            } else if (ed) {
+                return (time <= ed)
+            }
+        })
+    } else {
+        return rows
+    }
+}
 // Our table component
 function Table({ columns, data }) {
     const filterTypes = React.useMemo(
