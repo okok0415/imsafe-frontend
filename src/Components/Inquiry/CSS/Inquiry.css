@@ -10,6 +10,12 @@
     color: var(--text-color);
     margin: 30px;
     text-align: center;
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+}
+
+.table{
+
 }
 
 .global-filter {
@@ -24,6 +30,95 @@
     color: var(--text-color);
 }
 
+.page {
+    text-align: initial;
+}
 .global-filter .search{
 
+}
+
+.name .search {
+    width: 100px;
+}
+
+.age .numRangePrevious {
+    width: 70px;
+}
+
+.age .numRangeNext {
+    width: 70px;
+}
+
+.gender .select{
+    background-color: var(--bg);
+    color: var(--text-color);
+    width:88px;
+    height: 33px;
+}
+
+.address .search {
+    width: 300px;
+}
+
+.phonenum .search {
+    width: 120px;
+}
+
+.medical-records .search {
+    width: 120px;
+}
+
+.protector .search {
+    width: 100px;
+}
+
+.pphonenum .search {
+    width: 120px;
+}
+
+.PIC .search {
+    width:100px;
+}
+
+.sensor-name .search {
+    width: 150px;
+}
+
+.connected .search {
+    width: 100px;
+}
+
+.battery-status .numRangePrevious{
+    width: 70px;
+}
+
+.battery-status .numRangeNext{
+    width: 70px;
+}
+
+.battery-change .daterange-previous {
+    width: 120px;
+}
+
+.battery-change .daterange-next {
+    width: 120px;
+}
+
+.change-count .search {
+    width: 70px;
+}
+
+.powerstatus .select{
+    width: 88px;
+    height: 33px;
+    background-color: var(--bg);
+    color : var(--text-color);
+
+}
+
+.networkstatus .select {
+    width: 130px;
+    height: 33px;
+    background-color: var(--bg);
+    color : var(--text-color);
 }

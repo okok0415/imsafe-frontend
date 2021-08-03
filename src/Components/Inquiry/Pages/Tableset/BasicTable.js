@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTable, useFilters, useGlobalFilter, useAsyncDebounce, usePagination, useSortBy } from 'react-table'
+import { useTable, useFilters, useGlobalFilter, useAsyncDebounce } from 'react-table'
 // A great library for fuzzy filtering/sorting items
 import { matchSorter } from 'match-sorter'
 import "../../CSS/Inquiry.css";
@@ -148,7 +148,6 @@ function SelectColumnFilter({
     // Render a multi-select box
     return (
         <select
-            className="select"
             value={filterValue}
             onChange={e => {
                 setFilter(e.target.value || undefined)
@@ -181,7 +180,6 @@ function BooleanColumnFilter({
     // Render a multi-select box
     return (
         <select
-            className="select"
             value={filterValue}
             onChange={e => {
                 setFilter(e.target.value || undefined)
@@ -248,30 +246,35 @@ function NumberRangeColumnFilter({
     return (
         <div
             style={{
-                display: 'block',
+                display: 'flex',
             }}
         >
             <input
-                className="numRangePrevious"
                 value={filterValue[0] || ''}
                 type="number"
                 onChange={e => {
                     const val = e.target.value
                     setFilter((old = []) => [val ? parseInt(val, 10) : undefined, old[1]])
                 }}
-                placeholder={`최소 (${min})`}
-
+                placeholder={`Min (${min})`}
+                style={{
+                    width: '70px',
+                    marginRight: '0.5rem',
+                }}
             />
-            <div> ~ </div>
+            to
             <input
-                className="numRangeNext"
                 value={filterValue[1] || ''}
                 type="number"
                 onChange={e => {
                     const val = e.target.value
                     setFilter((old = []) => [old[0], val ? parseInt(val, 10) : undefined])
                 }}
-                placeholder={`최대 (${max})`}
+                placeholder={`Max (${max})`}
+                style={{
+                    width: '70px',
+                    marginLeft: '0.5rem',
+                }}
             />
         </div>
     )
@@ -368,7 +371,6 @@ function DateRangeColumnFilter({
     return (
         <div>
             <input
-                className="daterange-previous"
                 min={min.toISOString().slice(0, 10)}
                 onChange={e => {
                     const val = e.target.value
@@ -377,11 +379,8 @@ function DateRangeColumnFilter({
                 type="date"
                 value={filterValue[0] || ''}
             />
-            <div>
-                {' ~ '}
-            </div>
+            {' to '}
             <input
-                className="daterange-next"
                 max={max.toISOString().slice(0, 10)}
                 onChange={e => {
                     const val = e.target.value
@@ -449,15 +448,7 @@ function Table({ columns, data }) {
         getTableProps,
         getTableBodyProps,
         headerGroups,
-        page,
-        nextPage,
-        previousPage,
-        canNextPage,
-        canPreviousPage,
-        pageOptions,
-        gotoPage,
-        pageCount,
-        setPageSize,
+        rows,
         prepareRow,
         state,
         visibleColumns,
@@ -469,34 +460,14 @@ function Table({ columns, data }) {
             data,
             defaultColumn, // Be sure to pass the defaultColumn option
             filterTypes,
-            initialState: {
-                sortBy: [
-                    {
-                        id: 'name',
-                        desc: false
-                    },
-                    {
-                        id: 'alarm-date',
-                        desc: false
-                    },
-                    {
-                        id: 'sensor-name',
-                        desc: false
-                    }
-                ]
-            }
         },
         useFilters, // useFilters!
-        useGlobalFilter, // useGlobalFilter!
-        useSortBy,
-        usePagination,
+        useGlobalFilter // useGlobalFilter!
     )
 
     // We don't want to render all of the rows for this example, so cap
     // it for this use case
     // const firstPageRows = rows.slice(0, 10)
-    const { pageIndex, pageSize } = state
-
 
     return (
         <>
@@ -508,13 +479,10 @@ function Table({ columns, data }) {
                         setGlobalFilter={setGlobalFilter}
                     />
                     {headerGroups.map(headerGroup => (
-                        <tr {...headerGroup.getHeaderGroupProps()} style={{ verticalAlign: 'top' }}>
+                        <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                <th className={column.className} {...column.getHeaderProps()} sorted={column.sorted}>
-                                    <span {...column.getSortByToggleProps()}>
-                                        {column.render('Header')}
-                                    </span>
-                                    <span>{column.isSorted ? (column.isSortedDesc ? <i class="fas fa-chevron-up"></i> : <i class="fas fa-chevron-down"></i>) : ''}</span>
+                                <th className={column.className} {...column.getHeaderProps()}>
+                                    {column.render('Header')}
                                     {/* Render the columns filter UI */}
                                     <div>{column.canFilter ? column.render('Filter') : null}</div>
                                 </th>
@@ -532,7 +500,7 @@ function Table({ columns, data }) {
                     </tr>
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {page.map((row, i) => {
+                    {rows.map((row, i) => {
                         prepareRow(row)
                         return (
                             <tr {...row.getRowProps()}>
@@ -544,36 +512,6 @@ function Table({ columns, data }) {
                     })}
                 </tbody>
             </table>
-            <div className="page">
-                <span>
-                    페이지{' '}
-                    <strong>
-                        {pageIndex + 1} / {pageOptions.length}
-                    </strong> {' '}
-                </span>
-                <span>
-                    | 페이지 이동: {' '}
-                    <input type='number' defaultValue={pageIndex + 1}
-                        onChange={e => {
-                            const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(pageNumber)
-                        }}
-                        style={{ width: '50px' }} />
-                </span>
-                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
-                    {
-                        [10, 25, 50].map((pageSize) => (
-                            <option key={pageSize} value={pageSize}>
-                                {pageSize}개씩 보기
-                            </option>
-                        ))
-                    }
-                </select>
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
-            </div>
         </>
     )
 }

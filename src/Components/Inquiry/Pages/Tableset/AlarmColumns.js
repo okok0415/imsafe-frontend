@@ -1,6 +1,27 @@
-import { NumberRangeColumnFilter, SelectColumnFilter, NameColumnFilter, AddressColumnFilter, PhoneColumnFilter, MedicalRecordsColumnFilter } from "./Table";
+import { NumberRangeColumnFilter, SelectColumnFilter, NameColumnFilter, AddressColumnFilter, PhoneColumnFilter, MedicalRecordsColumnFilter, DateRangeColumnFilter } from "./Table";
 
 export const COLUMNS = [
+    {
+        Header: "날짜",
+        accessor: "날짜",
+        Filter: DateRangeColumnFilter,
+        filter: 'dateBetween',
+        className: "alarm-date",
+        id: 'alarm-date',
+    },
+    {
+        Header: "알람 내용",
+        accessor: "알람내용",
+        Filter: NameColumnFilter,
+        className: "alarm-content",
+    },
+    {
+        Header: "작동 센서",
+        accessor: "작동센서",
+        Filter: NameColumnFilter,
+        className: "alarm-sensor",
+    },
+
     {
         Header: '노인 정보',
         columns: [
@@ -9,7 +30,6 @@ export const COLUMNS = [
                 accessor: '성함',
                 Filter: NameColumnFilter,
                 className: "name",
-                id: 'name',
             },
             {
                 Header: '나이',
@@ -61,7 +81,7 @@ export const COLUMNS = [
             },
             {
                 Header: '보호자 전화번호',
-                accessor: '보호자 전화번호',
+                accessor: '보호자전화번호',
                 Filter: PhoneColumnFilter,
                 filter: 'fuzzyText',
                 className: 'pphonenum',

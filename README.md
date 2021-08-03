@@ -19,7 +19,7 @@ Task
     
     5. SensorColumn acceossor true false대신 이모티콘 넣는게 가능할까?
 
-
+    6. 조회 페이지에서 생성한 날짜 순으로 배열하는 것으로 해야할까? 
 
 
 
