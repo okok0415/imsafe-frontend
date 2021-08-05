@@ -5,6 +5,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--text-color);
+    overflow-x : visible;
   }
   
   code {
@@ -39,10 +40,10 @@ body {
   
   /* <nav> */
   .navbar {
-    width : 100%;
+    width : 100vw;
     height: var(--nav-size);
     background-color: var(--bg);
-    padding: 0 1rem;
+
     border-bottom: var(--border);
     display: flex;
     justify-content: space-around;
@@ -178,9 +179,7 @@ body {
     transform: translateX(0%);
     transition: all var(--speed) ease;
   }
-  .menu-secondary-exit {
-  
-  }
+
   .menu-secondary-exit-active {
     transform: translateX(110%);
     transition: all var(--speed) ease;

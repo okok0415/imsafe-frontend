@@ -1,20 +1,20 @@
 import React from "react";
-import { Table } from "./Tableset/Table";
-import { COLUMNS } from "./Tableset/AlarmColumns.js";
+import { Table } from "./Table";
+import { COLUMNS } from "./AlarmColumns.js";
 import MOCK_DATA from "../../../JSON/MOCK_DATA_ALARM.json";
-import "../CSS/Inquiry.css"
+import "../CSS/Home.css";
 
-function Alarm() {
+function DashBoardAlarm() {
     const columns = React.useMemo(() => COLUMNS, [])
     const data = React.useMemo(() => MOCK_DATA, [])
 
     return (
         <>
-            <div className='content'>
+            <div className='alarm'>
                 <Table columns={columns} data={data} />
             </div>
         </>
     )
 }
 
-export default Alarm;
+export default DashBoardAlarm;

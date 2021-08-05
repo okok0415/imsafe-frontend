@@ -11,16 +11,10 @@
     margin: 30px;
     text-align: center;
     display: grid;
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 100fr 1fr;
+    overflow-y: auto;
 }
 
-.table{
-
-}
-
-.global-filter {
-
-}
 
 .table input{
     border : 1px solid var(--bg-accent);
@@ -32,10 +26,9 @@
 
 .page {
     text-align: initial;
+    margin-bottom: 30px;
 }
-.global-filter .search{
 
-}
 
 .name .search {
     width: 100px;

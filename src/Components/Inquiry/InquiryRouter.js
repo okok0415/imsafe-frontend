@@ -2,7 +2,7 @@ import React from "react";
 import State from "./Pages/State.js";
 import Sensor from "./Pages/Sensor.js";
 import Alarm from "./Pages/Alarm.js";
-import Navbar from "../Navbar/Navbar.js";
+import Navbar from "../Navbar/Navbar";
 import { SidebarInquiry } from "../Sidebar/Sidebar.js";
 import "../../CSS/App.css";
 import { Route, Switch } from "react-router-dom";
@@ -12,7 +12,7 @@ export const InquiryRouter = ({ match }) => {
     return (
         <>
 
-            <Navbar />
+            <Navbar width="2300px" />
             <div className="inquiry-grid">
                 <SidebarInquiry />
                 <Switch>

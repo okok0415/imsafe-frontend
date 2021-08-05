@@ -1,0 +1,55 @@
+.dashboard {
+    display: grid;
+    margin: 30px;
+    text-align : center;
+
+}
+
+.top-block {
+    width: 100%;
+    height: 350px;
+    background-color: var(--bg);
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr;
+
+}
+
+.top-block .alarm {
+    display: grid;
+    margin: 10px;
+}
+
+.top-block .more {
+    text-align:end;
+    margin-right: 40px;
+}
+
+.bottom-block {
+    margin-top:50px;
+    width: 100%;
+    height: 350px;
+    background-color: var(--bg);
+    display: grid;
+    grid-template-rows: 1fr, 8fr, 1fr;
+}
+
+.bottom-block .block-table{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bottom-block .left{
+    display: grid;
+    margin: 10px;
+
+}
+
+.bottom-block .right{
+    display: grid;
+    margin: 10px;
+}
+
+.bottom-block .more{
+    text-align: end;
+    margin-right: 40px;
+}

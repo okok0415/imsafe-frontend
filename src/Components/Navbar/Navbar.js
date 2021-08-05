@@ -20,11 +20,12 @@ function Navbar() {
             <NavItem icon={<CogIcon />} url="/settings/myprofile">
                 <DropdownMenuS />
             </NavItem>
-            <NavItem icon={<LogoutIcon />}>
+            <NavItem icon={<LogoutIcon />} >
             </NavItem>
         </Topbar>
     );
 }
+
 
 
 export default Navbar;

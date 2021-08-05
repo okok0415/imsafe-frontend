@@ -1,0 +1,9 @@
+.detail{
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+}
+
+.detail-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

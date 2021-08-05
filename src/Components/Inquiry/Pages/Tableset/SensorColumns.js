@@ -45,7 +45,7 @@ export const COLUMNS = [
                 id: 'powerstatus',
                 Header: '전원상태',
                 accessor: "powerstatus",
-                Cell: ({ value }) => (value === true ? <i class="fas fa-check-circle"></i> : <i class="fas fa-times"></i>),
+                Cell: ({ value }) => (value === true ? <i className="fas fa-check-circle"></i> : <i className="fas fa-times"></i>),
                 filterMethod: (filter, row) => {
                     if (filter.value.indexOf("all") > -1) {
                         return true;
@@ -62,7 +62,7 @@ export const COLUMNS = [
                 id: 'networkstatus',
                 Header: '네트워크연결상태',
                 accessor: "networkstatus",
-                Cell: ({ value }) => (value === true ? <i class="fas fa-check-circle"></i> : <i class="fas fa-times"></i>),
+                Cell: ({ value }) => (value === true ? <i className="fas fa-check-circle"></i> : <i className="fas fa-times"></i>),
                 filterMethod: (filter, row) => {
                     if (filter.value.indexOf("all") > -1) {
                         return true;

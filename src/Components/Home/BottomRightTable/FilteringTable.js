@@ -1,47 +1,7 @@
 import React from 'react'
-import { useTable, useFilters, useGlobalFilter, useAsyncDebounce, usePagination, useSortBy } from 'react-table'
+import { useTable, useFilters, useGlobalFilter, usePagination, useSortBy } from 'react-table'
 // A great library for fuzzy filtering/sorting items
 import { matchSorter } from 'match-sorter'
-import "../../CSS/Inquiry.css";
-
-
-// Define a default UI for filtering
-function GlobalFilter({
-    preGlobalFilteredRows,
-    globalFilter,
-    setGlobalFilter,
-}) {
-    //const count = preGlobalFilteredRows.length
-    const [value, setValue] = React.useState(globalFilter)
-    const onChange = useAsyncDebounce(value => {
-        setGlobalFilter(value || undefined)
-    }, 200)
-
-    return (
-        <tr role="row" className="global-filter">
-            <th colSpan="1" role="columnheader">
-
-                전체 검색 :{' '}
-
-            </th>
-            <th colSpan="13" role="columnheader">
-                <input
-                    value={value || ""}
-                    onChange={e => {
-                        setValue(e.target.value);
-                        onChange(e.target.value);
-                    }}
-                    placeholder={`검색어를 입력하시오.`}
-                    style={{
-                        width: '450px',
-                        fontSize: '1.1rem',
-                        border: '0',
-                    }}
-                />
-            </th>
-        </tr>
-    )
-}
 
 // Define a default UI for filtering
 function DefaultColumnFilter({
@@ -394,35 +354,12 @@ function DateRangeColumnFilter({
     )
 }
 
-function dateBetweenFilterFn(rows, id, filterValues) {
-    let sd = filterValues[0] ? new Date(filterValues[0]) : undefined
-    let ed = filterValues[1] ? new Date(filterValues[1]) : undefined
 
-    if (ed || sd) {
-        return rows.filter(r => {
-            var time = new Date(r.values[id])
-
-            if (ed && sd) {
-                return (time >= sd && time <= ed)
-            } else if (sd) {
-                return (time >= sd)
-            } else if (ed) {
-                return (time <= ed)
-            }
-        })
-    } else {
-        return rows
-    }
-}
 // Our table component
 function Table({ columns, data }) {
-
-
     const filterTypes = React.useMemo(
         () => ({
             // Add a new fuzzyTextFilterFn filter type.
-            fuzzyText: fuzzyTextFilterFn,
-            dateBetween: dateBetweenFilterFn,
             // Or, override the default text filter to use
             // "startWith"
             text: (rows, id, filterValue) => {
@@ -452,18 +389,8 @@ function Table({ columns, data }) {
         getTableBodyProps,
         headerGroups,
         page,
-        nextPage,
-        previousPage,
-        canNextPage,
-        canPreviousPage,
-        pageOptions,
-        gotoPage,
-        pageCount,
-        setPageSize,
         prepareRow,
-        state,
-        preGlobalFilteredRows,
-        setGlobalFilter,
+
 
     } = useTable(
         {
@@ -473,20 +400,12 @@ function Table({ columns, data }) {
             // Be sure to pass the defaultColumn option
             filterTypes,
             initialState: {
-                sortBy: [
+                filters: [
                     {
-                        id: 'name',
-                        desc: false
+                        id: 'networkstatus',
+                        value: false,
+                    },
 
-                    },
-                    {
-                        id: 'alarm-date',
-                        desc: true
-                    },
-                    {
-                        id: 'sensor-name',
-                        desc: false
-                    }
                 ]
 
             }
@@ -497,21 +416,13 @@ function Table({ columns, data }) {
         usePagination,
     )
 
-    // We don't want to render all of the rows for this example, so cap
-    // it for this use case
-    // const firstPageRows = rows.slice(0, 10)
-    const { pageIndex, pageSize } = state
 
+    const firstPageRows = page.slice(0, 3);
 
     return (
         <>
             <table className="table" {...getTableProps()}>
                 <thead>
-                    <GlobalFilter
-                        preGlobalFilteredRows={preGlobalFilteredRows}
-                        globalFilter={state.globalFilter}
-                        setGlobalFilter={setGlobalFilter}
-                    />
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()} style={{ verticalAlign: 'top' }}>
                             {headerGroup.headers.map(column => (
@@ -521,14 +432,14 @@ function Table({ columns, data }) {
                                     </span>
                                     <span>{column.isSorted ? (column.isSortedDesc ? <i className="fas fa-chevron-up"></i> : <i className="fas fa-chevron-down"></i>) : ''}</span>
                                     {/* Render the columns filter UI */}
-                                    <div>{column.canFilter ? column.render('Filter') : null}</div>
                                 </th>
                             ))}
                         </tr>
                     ))}
+
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {page.map((row, i) => {
+                    {firstPageRows.map((row, i) => {
                         prepareRow(row)
                         return (
                             <tr {...row.getRowProps()}>
@@ -540,36 +451,6 @@ function Table({ columns, data }) {
                     })}
                 </tbody>
             </table>
-            <div className="page">
-                <span>
-                    페이지{' '}
-                    <strong>
-                        {pageIndex + 1} / {pageOptions.length}
-                    </strong> {' '}
-                </span>
-                <span>
-                    | 페이지 이동: {' '}
-                    <input type='number' defaultValue={pageIndex + 1}
-                        onChange={e => {
-                            const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(pageNumber)
-                        }}
-                        style={{ width: '50px' }} />
-                </span>
-                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
-                    {
-                        [10, 25, 50].map((pageSize) => (
-                            <option key={pageSize} value={pageSize}>
-                                {pageSize}개씩 보기
-                            </option>
-                        ))
-                    }
-                </select>
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
-            </div>
         </>
     )
 }

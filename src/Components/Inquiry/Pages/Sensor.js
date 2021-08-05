@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "./Tableset/Table";
 import { COLUMNS } from "./Tableset/SensorColumns";
-import MOCK_DATA from "./Tableset/MOCK_DATA_SENSOR.json";
+import MOCK_DATA from "../../../JSON/MOCK_DATA_SENSOR.json";
 import "../CSS/Inquiry.css"
 
 function Sensor() {
