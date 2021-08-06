@@ -43,7 +43,6 @@ function Signin() {
                                 <input onClick={handlePW} className="input" type="password" />
                             </div>
                         </div>
-                        <Link to="/" className="login-link">비밀번호를 잊어버렸습니까?</Link>
                         <input type="submit" className="btn" value="로그인" />
                     </form>
                 </div>

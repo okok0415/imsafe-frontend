@@ -27,8 +27,35 @@
 .page {
     text-align: initial;
     margin-bottom: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
 }
 
+.pagePN{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.pagePN .button{
+
+    width: 50px;
+    font-size: 14px;;
+}
+
+.pagePN .select{
+    width: 100px;
+}
+
+.movepage{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.btn-grid{
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+}
 
 .name .search {
     width: 100px;

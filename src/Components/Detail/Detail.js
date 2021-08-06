@@ -46,8 +46,10 @@ class Detail extends React.Component {
                                 <div className="detail-left">
                                     <div className="text">
                                         <div className="title">
-                                            {location.state.name}님 세부정보
-                                            <button className="button"> 수정하기</button>
+                                            <div className="title-title">
+                                                {location.state.name}님 세부정보
+                                            </div>
+                                            <button className="btn"> 수정하기</button>
                                         </div>
                                         <div className="detail-content">
                                             <div className="subtitle" >본인 정보</div>

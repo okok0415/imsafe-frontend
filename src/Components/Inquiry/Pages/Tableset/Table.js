@@ -541,34 +541,41 @@ function Table({ columns, data }) {
                 </tbody>
             </table>
             <div className="page">
-                <span>
-                    페이지{' '}
-                    <strong>
-                        {pageIndex + 1} / {pageOptions.length}
-                    </strong> {' '}
-                </span>
-                <span>
-                    | 페이지 이동: {' '}
-                    <input type='number' defaultValue={pageIndex + 1}
-                        onChange={e => {
-                            const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(pageNumber)
-                        }}
-                        style={{ width: '50px' }} />
-                </span>
-                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
-                    {
-                        [10, 25, 50].map((pageSize) => (
-                            <option key={pageSize} value={pageSize}>
-                                {pageSize}개씩 보기
-                            </option>
-                        ))
-                    }
-                </select>
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+
+                <div className="pagePN">
+
+                    <span className="movepage">
+                        페이지 이동: {' '}
+                        <input type='number' defaultValue={pageIndex + 1}
+                            onChange={e => {
+                                const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
+                                gotoPage(pageNumber)
+                            }}
+                            style={{ width: '50px' }} />
+                    </span>
+                    <span>
+                        페이지{' '}
+                        <strong>
+                            {pageIndex + 1} / {pageOptions.length}
+                        </strong> {' '}
+                    </span>
+                    <div className="btn-grid">
+                        <button className="button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
+                        <button className="button" onClick={() => previousPage()} disabled={!canPreviousPage}>이전</button>
+                        <button className="button" onClick={() => nextPage()} disabled={!canNextPage}>이후</button>
+                        <button className="button" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+                    </div>
+                    <select className="select" value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
+                        {
+                            [10, 25, 50].map((pageSize) => (
+                                <option key={pageSize} value={pageSize}>
+                                    {pageSize}개씩 보기
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+
             </div>
         </>
     )

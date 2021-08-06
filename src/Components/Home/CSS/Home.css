@@ -53,3 +53,15 @@
     text-align: end;
     margin-right: 40px;
 }
+
+@media screen and (max-width : 1000px) {
+    .bottom-block {
+        height: 600px;
+    }
+
+    .bottom-block .block-table{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: none;
+    }
+}

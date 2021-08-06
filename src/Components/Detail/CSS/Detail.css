@@ -170,10 +170,25 @@
 
 .block .content {
     display: flex;
+    flex-direction: row;
+    margin :15%;
     justify-content: center;
+    font-size: 30px;
 }
 
-
+.detail .btn {
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    padding: 8px;
+}
+.title .title-title {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 @media screen and (max-width: 1500px){
     .detail {
         display: grid;
