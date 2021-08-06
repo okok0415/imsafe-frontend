@@ -21,7 +21,7 @@
     font-size: 21px;
     line-height: inherit;
     border: 0;
-    border-bottom: 1px solid var(--bg-accent);
+    border-bottom: var(--border);
     padding-bottom:5px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .create .instance .right{
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: left;
 }
@@ -50,7 +50,7 @@
 }
 
 .create .instance .righttel{
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: center;
     
@@ -60,17 +60,17 @@
 }
 
 .create .instance .inputvalue{
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: left;
 
-    background-color: var(--bg);
+    background-color: var(--input);
     color: var(--text-color);
 }
 
 .create .instance .tel{
     width: 100px;
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: center;
     background-color: var(--bg);

@@ -17,7 +17,7 @@
 
 
 .table input{
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: left;
     background-color: var(--bg);
@@ -37,9 +37,14 @@
     justify-content: center;
 }
 .pagePN .button{
-
+    background-color: var(--background);
     width: 50px;
     font-size: 14px;;
+    border : var(--border);
+}
+
+.pagePN .button:hover{
+    background-color: var(--sidebar-accent);
 }
 
 .pagePN .select{
@@ -141,4 +146,8 @@
     height: 33px;
     background-color: var(--bg);
     color : var(--text-color);
+}
+
+.name-link:hover {
+    background-color: var(--sidebar-accent);
 }

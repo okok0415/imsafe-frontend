@@ -560,10 +560,10 @@ function Table({ columns, data }) {
                         </strong> {' '}
                     </span>
                     <div className="btn-grid">
-                        <button className="button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
-                        <button className="button" onClick={() => previousPage()} disabled={!canPreviousPage}>이전</button>
-                        <button className="button" onClick={() => nextPage()} disabled={!canNextPage}>이후</button>
-                        <button className="button" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+                        <div className="button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</div>
+                        <div className="button" onClick={() => previousPage()} disabled={!canPreviousPage}>이전</div>
+                        <div className="button" onClick={() => nextPage()} disabled={!canNextPage}>이후</div>
+                        <div className="button" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</div>
                     </div>
                     <select className="select" value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
                         {

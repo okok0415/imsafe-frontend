@@ -38,7 +38,7 @@
     font-size: 21px;
     line-height: inherit;
     border: 0;
-    border-bottom: 1px solid var(--bg-accent);
+    border-bottom: var(--border);
     padding-bottom:5px;
 }
 
@@ -54,13 +54,13 @@
 }
 
 .myprofile-instance .right{
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: left;
 }
 
 .myprofile-instance .inputvalue{
-    border : 1px solid var(--bg-accent);
+    border : var(--border);
     padding: 8px;
     text-align: left;
     background-color: var(--bg);

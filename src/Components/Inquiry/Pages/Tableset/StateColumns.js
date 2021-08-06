@@ -24,7 +24,7 @@ export const COLUMNS = [
                         protectorNum: row.original.보호자전화번호,
                         PIC: row.original.담당자,
                     }
-                }}>{row.original.성함}</Link>)
+                }}><span className="name-link">{row.original.성함}</span></Link>)
             },
             {
                 Header: '나이',

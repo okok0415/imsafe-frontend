@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import avatarIcon from "./icons/avatar.png";
 import loginIcon from "./icons/login.svg";
+import IMSAFE from "../Navbar/icons/imsafe.png"
 import "./CSS/Signup.css";
 
 
@@ -21,8 +21,7 @@ function Signup() {
             <div className="login container">
                 <div className="login-content-signup">
                     <form >
-                        <img className="avatar" src={avatarIcon} alt="" />
-                        <h2>IMSAFE</h2>
+                        <img src={IMSAFE} height="70px" alt="" />
                         <div className={ID ? "input-div one focus" : "input-div one"}>
                             <div className="i">
                                 <i className="fas fa-user"></i>

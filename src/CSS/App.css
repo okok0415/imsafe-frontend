@@ -8,7 +8,8 @@
 
 table {
     border-spacing: 0;
-    border: 1px solid var(--bg-accent);
+    border: var(--border);
+    border-right: 0;
     background-color: var(--bg);
 
   }
@@ -16,15 +17,18 @@ table {
   td {
     margin: 0;
     padding: 0.5rem;
-    border-bottom: 1px solid var(--bg-accent);
-    border-right: 1px solid var(--bg-accent);
+    border-right: var(--border);
 
   }
 
   th {
     margin: 0;
     padding: 0.5rem;
-    border-bottom: 1px solid var(--bg-accent);
-    border-right: 1px solid var(--bg-accent);
+    border-bottom: var(--border);
+    border-right: var(--border);
 
+  }
+
+  th:hover {
+    background-color: var(--sidebar-accent);
   }
