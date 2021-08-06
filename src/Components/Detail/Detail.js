@@ -2,10 +2,28 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { SidebarInquiry } from "../Sidebar/Sidebar";
 import "./CSS/Detail.css";
+import { WeeklyReport } from "./WeeklyReport";
 
 class Detail extends React.Component {
+    state = {
+        alarmState: true,
+        alarmLog: [
+            "2021-07-06 센서 1 낙상(Fallen) 발생",
+            "2021-06-18 센서 1 발열증세 발생",
+            "2021-03-01 센서 1 낙상(Fallen) 발생"
+        ],
+        sensorInf: {
+            sensorName: "센서1",
+            batteryStatus: "89%",
+            batteryChangeDate: "2020-08-18 16:47",
+            batteryChangeCount: "2",
+            powerStatus: true,
+            networkStatus: true
+        },
+
+    }
+
     componentDidMount() {
-        console.log(this.props);
 
         const { location, history } = this.props;
         if (location.state)
@@ -16,6 +34,7 @@ class Detail extends React.Component {
     }
     render() {
         const { location } = this.props;
+        const printLog = this.state.alarmLog.map((log) => <div className="alarm-content">{log}</div>);
         if (location.state) {
             return (
                 <>
@@ -25,22 +44,133 @@ class Detail extends React.Component {
                         <div className="detail">
                             <div className="detail-top">
                                 <div className="detail-left">
-                                    {location.state.name}님 세부정보
+                                    <div className="text">
+                                        <div className="title">
+                                            {location.state.name}님 세부정보
+                                            <button className="button"> 수정하기</button>
+                                        </div>
+                                        <div className="detail-content">
+                                            <div className="subtitle" >본인 정보</div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    나이 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.age}
+                                                </div>
+                                            </div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    성별 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.gender}
+                                                </div>
+                                            </div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    주소 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.address}
+                                                </div>
+                                            </div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    전화번호 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.phoneNum}
+                                                </div>
+                                            </div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    진료기록 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.medicalRecord}
+                                                </div>
+                                            </div>
+                                            <div className="subtitle" >보호자 정보</div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    성함 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.protector}
+                                                </div>
+                                            </div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    전화번호 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.protectorNum}
+                                                </div>
+                                            </div>
+                                            <div className="subtitle" >병원 정보</div>
+                                            <div className="substance">
+                                                <div className="left">
+                                                    담당자 :
+                                                </div>
+                                                <div className="right">
+                                                    {location.state.PIC}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="detail-right">
                                     <div className="alarm-status">
-                                        알람 상태
+                                        <span>알람 상태 : </span>
+                                        <span>
+                                            {this.state.alarmState ? <i className="fas fa-check-circle"></i> : <i className="fas fa-times"></i>}
+                                        </span>
                                     </div>
                                     <div className="alarm-log">
-                                        알람 로그
+                                        <div className="title">알람 로그</div>
+                                        <div className="log">
+                                            {printLog}
+                                        </div>
+                                        <div className="more">더보기...</div>
                                     </div>
                                     <div className="sensor-inf">
-                                        센서정보
+                                        <div className="title">센서 정보</div>
+                                        <div className="subtitle">기기 정보</div>
+                                        <div className="substance">
+                                            <span className="left">센서명 :</span>
+                                            <span className="right">{this.state.sensorInf.sensorName}</span>
+                                        </div>
+                                        <div className="subtitle">건전지 정보</div>
+                                        <div className="substance">
+                                            <span className="left">상태 :</span>
+                                            <span className="right">{this.state.sensorInf.batteryStatus}</span>
+                                        </div>
+                                        <div className="substance">
+                                            <span className="left">교체 시점 :</span>
+                                            <span className="right">{this.state.sensorInf.batteryChangeDate}</span>
+                                        </div>
+                                        <div className="substance">
+                                            <span className="left">교체 횟수 :</span>
+                                            <span className="right">{this.state.sensorInf.batteryChangeCount}</span>
+                                        </div>
+                                        <div className="subtitle">센서 상태</div>
+
+                                        <div className="substance">
+                                            <span className="left">전원 :</span>
+                                            <span className="right">{this.state.sensorInf.powerStatus ? <i className="fas fa-check-circle"></i> : <i className="fas fa-times"></i>}</span>
+                                        </div>
+                                        <div className="substance">
+                                            <span className="left">네트워크 :</span>
+                                            <span className="right">{this.state.sensorInf.networkStatus ? <i className="fas fa-check-circle"></i> : <i className="fas fa-times"></i>}</span>
+                                        </div>
+
                                     </div>
                                 </div>
+
                             </div>
                             <div className="detail-bottom">
-                                {location.state.name}님 생활 패턴 주간 보고서
+                                <WeeklyReport id={location.state.id} name={location.state.name} />
                             </div>
                         </div>
                     </div>
