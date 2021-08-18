@@ -60,16 +60,6 @@ function Create() {
                         <div className="left">담당자</div>
                         <input type="hospital" className="inputvalue name" />
                     </div>
-                    <div className="instance">
-                        <div className="left">센서</div>
-                        <select className="right sensor" name="sensor">
-                            <option value="">센서 선택</option>
-                            <option>센서 6</option>
-                            <option>센서 7</option>
-                            <option>센서 8</option>
-                            <option>센서 9</option>
-                        </select>
-                    </div>
 
                     <div className="instance">
                         <div className="left"></div>

@@ -29,7 +29,7 @@ function Table({ columns, data }) {
 
     // We don't want to render all of the rows for this example, so cap
     // it for this use case
-    const firstPageRows = rows.slice(0, 3)
+    const firstPageRows = rows.slice(0, 7);
 
     return (
         <>

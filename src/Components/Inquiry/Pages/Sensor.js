@@ -7,7 +7,6 @@ import "../CSS/Inquiry.css"
 function Sensor() {
     const columns = React.useMemo(() => COLUMNS, [])
     const data = React.useMemo(() => MOCK_DATA, [])
-
     return (
         <>
             <div className='content'>

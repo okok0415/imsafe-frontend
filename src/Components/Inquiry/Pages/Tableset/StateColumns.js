@@ -6,49 +6,40 @@ export const COLUMNS = [
         columns: [
             {
                 Header: '성함',
-                accessor: '성함',
+                accessor: 'age',
                 Filter: NameColumnFilter,
                 className: "name",
                 id: 'name',
                 Cell: ({ row }) => (<Link to={{
-                    pathname: `/detail/${row.original.id}`,
+                    pathname: `/detail/${row.original.name}`,
                     state: {
-                        id: row.original.id,
-                        name: row.original.성함,
-                        age: row.original.나이,
-                        gender: row.original.성별,
-                        address: row.original.주소,
-                        phoneNum: row.original.전화번호,
-                        medicalRecord: row.original.진료기록,
-                        protector: row.original.보호자,
-                        protectorNum: row.original.보호자전화번호,
-                        PIC: row.original.담당자,
+                        name: row.original.name,
                     }
-                }}><span className="name-link">{row.original.성함}</span></Link>)
+                }}><span className="name-link">{row.original.name}</span></Link>)
             },
             {
                 Header: '나이',
-                accessor: '나이',
+                accessor: 'age',
                 Filter: NumberRangeColumnFilter,
                 filter: 'between',
                 className: "age",
             },
             {
                 Header: '성별',
-                accessor: '성별',
+                accessor: 'gender',
                 Filter: SelectColumnFilter,
                 filter: 'includes',
                 className: "gender",
             },
             {
                 Header: '주소',
-                accessor: '주소',
+                accessor: 'address',
                 Filter: AddressColumnFilter,
                 className: 'address',
             },
             {
                 Header: '전화번호',
-                accessor: '전화번호',
+                accessor: 'phone number',
                 Filter: PhoneColumnFilter,
                 // Use our custom `fuzzyText` filter on this column
                 filter: 'fuzzyText',
@@ -56,7 +47,7 @@ export const COLUMNS = [
             },
             {
                 Header: '진료기록',
-                accessor: '진료기록',
+                accessor: 'medical records',
                 Filter: MedicalRecordsColumnFilter,
                 // Use our custom `fuzzyText` filter on this column
                 filter: 'fuzzyText',

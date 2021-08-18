@@ -1,4 +1,4 @@
-import { NumberRangeColumnFilter, NameColumnFilter, DateRangeColumnFilter, BooleanColumnFilter } from "./Table";
+import { NumberRangeColumnFilter, NameColumnFilter, DateRangeColumnFilter, BooleanColumnFilter, filterGreaterThan, SliderColumnFilter } from "./Table";
 
 export const COLUMNS = [
     {
@@ -37,8 +37,8 @@ export const COLUMNS = [
             {
                 Header: '교체횟수',
                 accessor: '교체횟수',
-                Filter: NameColumnFilter,
-                filter: 'fuzzyText',
+                Filter: SliderColumnFilter,
+                filter: filterGreaterThan,
                 className: 'change-count',
             },
             {

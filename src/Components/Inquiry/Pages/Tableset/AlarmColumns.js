@@ -90,7 +90,7 @@ export const COLUMNS = [
     },
     {
         Header: '담당자',
-        accessor: '담당자',
+        accessor: '관리자',
         Filter: NameColumnFilter,
         filter: 'fuzzyText',
         className: 'PIC',

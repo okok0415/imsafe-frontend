@@ -224,9 +224,12 @@ function SliderColumnFilter({
                     setFilter(parseInt(e.target.value, 10))
                 }}
             />
-            <button onClick={() => setFilter(undefined)}>Off</button>
+            <div className="range-span">스크롤된 횟수 이상을 표시합니다.</div>
+
         </>
     )
+
+    //<button onClick={() => setFilter(undefined)}>Off</button>
 }
 
 // This is a custom UI for our 'between' or number range
@@ -518,8 +521,8 @@ function Table({ columns, data }) {
                                 <th className={column.className} {...column.getHeaderProps()} sorted={column.sorted}>
                                     <span {...column.getSortByToggleProps()}>
                                         {column.render('Header')}
+                                        {column.isSorted ? (column.isSortedDesc ? <i className="fas fa-chevron-up"></i> : <i className="fas fa-chevron-down"></i>) : ""}
                                     </span>
-                                    <span>{column.isSorted ? (column.isSortedDesc ? <i className="fas fa-chevron-up"></i> : <i className="fas fa-chevron-down"></i>) : ''}</span>
                                     {/* Render the columns filter UI */}
                                     <div>{column.canFilter ? column.render('Filter') : null}</div>
                                 </th>

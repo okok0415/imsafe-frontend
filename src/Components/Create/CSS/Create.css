@@ -83,3 +83,7 @@
     text-align: center;
     padding:8px;
 }
+
+.create .instance .span {
+    font-size: 12px;
+}

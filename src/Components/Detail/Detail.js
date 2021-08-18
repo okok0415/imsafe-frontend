@@ -6,6 +6,9 @@ import { WeeklyReport } from "./WeeklyReport";
 
 class Detail extends React.Component {
     state = {
+        userInf: {
+
+        },
         alarmState: true,
         alarmLog: [
             "2021-07-06 센서 1 낙상(Fallen) 발생",
@@ -24,16 +27,16 @@ class Detail extends React.Component {
     }
 
     componentDidMount() {
-
-        const { location, history } = this.props;
-        if (location.state)
-            if (location.state === undefined) {
-                history.push("/home");
-            }
+        const { location } = this.props;
+        const name = location.state.name;
+        fetch(`http://127.0.0.1:8000/elder/json/${name}`)
+            .then(res => res.json())
+            .then(res => this.setState({ userInf: res }));
 
     }
     render() {
         const { location } = this.props;
+        const userdetail = this.state.userInf;
         const printLog = this.state.alarmLog.map((log) => <div className="alarm-content">{log}</div>);
         if (location.state) {
             return (
@@ -47,7 +50,7 @@ class Detail extends React.Component {
                                     <div className="text">
                                         <div className="title">
                                             <div className="title-title">
-                                                {location.state.name}님 세부정보
+                                                {userdetail.name}님 세부정보
                                             </div>
                                             <button className="btn"> 수정하기</button>
                                         </div>
@@ -58,7 +61,7 @@ class Detail extends React.Component {
                                                     나이 :
                                                 </div>
                                                 <div className="right">
-                                                    {location.state.age}
+                                                    {userdetail.age}
                                                 </div>
                                             </div>
                                             <div className="substance">
@@ -66,7 +69,7 @@ class Detail extends React.Component {
                                                     성별 :
                                                 </div>
                                                 <div className="right">
-                                                    {location.state.gender}
+                                                    {userdetail.gender}
                                                 </div>
                                             </div>
                                             <div className="substance">
@@ -74,7 +77,7 @@ class Detail extends React.Component {
                                                     주소 :
                                                 </div>
                                                 <div className="right">
-                                                    {location.state.address}
+                                                    {userdetail.address}
                                                 </div>
                                             </div>
                                             <div className="substance">
@@ -82,7 +85,7 @@ class Detail extends React.Component {
                                                     전화번호 :
                                                 </div>
                                                 <div className="right">
-                                                    {location.state.phoneNum}
+                                                    {userdetail.phonenumber}
                                                 </div>
                                             </div>
                                             <div className="substance">
