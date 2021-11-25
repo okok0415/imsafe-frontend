@@ -5,7 +5,7 @@ import "../CSS/Navbar.css";
 function Topbar(props) {
     return (
         <nav className="navbar">
-            <Link to='/home' className="navbar-title"><img src={Title} height="40px" alt="" /></Link>
+            <Link to='/' className="navbar-title"><img src={Title} height="40px" alt="" /></Link>
             <ul className="navbar-nav">
                 {props.children}
             </ul>

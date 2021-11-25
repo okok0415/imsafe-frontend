@@ -7,6 +7,7 @@ import Topbar from "./Functions/Topbar.js";
 import NavItem from "./Functions/NavItem.js";
 import { DropdownMenuC, DropdownMenuI, DropdownMenuS } from "./Functions/DropdownMenu.js";
 import "./CSS/Navbar.css";
+import Logout from "./Functions/Logout";
 
 function Navbar() {
     return (
@@ -20,8 +21,8 @@ function Navbar() {
             <NavItem icon={<CogIcon />} url="/settings/myprofile">
                 <DropdownMenuS />
             </NavItem>
-            <NavItem icon={<LogoutIcon />} >
-            </NavItem>
+            <Logout icon={<LogoutIcon />} url="/login">
+            </Logout>
         </Topbar>
     );
 }
