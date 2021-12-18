@@ -2,27 +2,27 @@ import React, { useState } from "react";
 import "./CSS/Create.css";
 
 function Create() {
-
-    const [name, setName] = useState();
-    const [birth, setBirth] = useState();
-    const [gender, setGender] = useState();
-    const [address, setAddress] = useState();
-    const [phone, setPhone] = useState();
-    const [medical, setMedical] = useState();
-    const [protector, setProtector] = useState();
-    const [pphone, setPphone] = useState();
-    const [hospital, setHospital] = useState();
-
-    const onSubmitHandler = async (e) => {
-        e.preventDefault();
-        let body = {
-            username: username,
-            password: password,
+    /*
+        const [name, setName] = useState();
+        const [birth, setBirth] = useState();
+        const [gender, setGender] = useState();
+        const [address, setAddress] = useState();
+        const [phone, setPhone] = useState();
+        const [medical, setMedical] = useState();
+        const [protector, setProtector] = useState();
+        const [pphone, setPphone] = useState();
+        const [hospital, setHospital] = useState();
+    
+        const onSubmitHandler = async (e) => {
+            e.preventDefault();
+            let body = {
+                username: username,
+                password: password,
+            };
+            dispatch(await loginUser(body))
+            setRedirect(true);
         };
-        dispatch(await loginUser(body))
-        setRedirect(true);
-    };
-
+    */
     return (
         <>
             <div className='create-content'>

@@ -13,7 +13,7 @@ class State extends React.Component {
 
     componentDidMount() {
 
-        fetch("http://127.0.0.1:8000/elder/json")
+        fetch("http://127.0.0.1:8000/elder/elder")
             .then(res => res.json())
             .then(res => this.setState({ data: res }));
 
